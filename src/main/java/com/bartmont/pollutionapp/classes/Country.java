@@ -1,4 +1,4 @@
-package com.bartmont.pollutionapp.controller;
+package com.bartmont.pollutionapp.classes;
 
 public class Country {
     private String name;
