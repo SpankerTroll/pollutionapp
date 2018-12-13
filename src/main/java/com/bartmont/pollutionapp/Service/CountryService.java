@@ -1,6 +1,6 @@
 package com.bartmont.pollutionapp.Service;
 
-import com.bartmont.pollutionapp.classes.Country;
+import com.bartmont.pollutionapp.entity.Country;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

@@ -4,19 +4,19 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class CountryEntity {
+public class Country {
     private String name;
     private String capitalName;
     @Id
     private int id;
 
-    public CountryEntity(String name, String capitalName, int id) {
+    public Country(String name, String capitalName, int id) {
         this.name = name;
         this.capitalName = capitalName;
         this.id = id;
     }
 
-    public CountryEntity() {
+    public Country() {
     }
 
     public String getName() {
