@@ -1,17 +1,22 @@
-package com.bartmont.pollutionapp.classes;
+package com.bartmont.pollutionapp.entity;
 
-public class Country {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class CountryEntity {
     private String name;
     private String capitalName;
+    @Id
     private int id;
 
-    public Country(String name, String capitalName, int id) {
+    public CountryEntity(String name, String capitalName, int id) {
         this.name = name;
         this.capitalName = capitalName;
         this.id = id;
     }
 
-    public Country() {
+    public CountryEntity() {
     }
 
     public String getName() {
