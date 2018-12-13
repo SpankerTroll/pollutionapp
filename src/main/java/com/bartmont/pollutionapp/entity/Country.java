@@ -5,10 +5,10 @@ import javax.persistence.Id;
 
 @Entity
 public class Country {
-    private String name;
-    private String capitalName;
     @Id
     private int id;
+    private String name;
+    private String capitalName;
 
     public Country(String name, String capitalName, int id) {
         this.name = name;

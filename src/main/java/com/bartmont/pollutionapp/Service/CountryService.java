@@ -1,6 +1,8 @@
 package com.bartmont.pollutionapp.Service;
 
 import com.bartmont.pollutionapp.entity.Country;
+import com.bartmont.pollutionapp.repository.CountryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,36 +12,49 @@ import java.util.List;
 @Service
 public class CountryService {
 
-    private List<Country> result = new ArrayList<>(Arrays.asList(
+    @Autowired
+    private CountryRepository countryRepository;
+
+    private List<Country> countries = new ArrayList<>(Arrays.asList(
             new Country("Poland","Warsaw",1),
             new Country("Germany","Berlin",2)
     ));
 
     public List<Country> getAllCountrys(){
-        return result;
+        List<Country> countries = new ArrayList<>();
+        countryRepository.findAll()
+                .forEach(countries::add);
+        return countries;
     }
+
     public Country getCountryById(int id){
-        return result.stream().filter(t -> t.getId()==id).findFirst().get();
+        //return countries.stream().filter(t -> t.getId()==id).findFirst().get();
+        return countryRepository.findById(id).get();
     }
+
     public void addCountry(Country country){
-        result.add(country);
+        //countries.add(country);
+        countryRepository.save(country);
     }
+
     public void updateCountry(int id, Country country){
-        for(int i=0;i<result.size();i++){
-            Country c = result.get(i);
+        /*for(int i = 0; i< countries.size(); i++){
+            Country c = countries.get(i);
             if(c.getId()==id){
-                result.set(i,country);
+                countries.set(i,country);
                 return;
-            }
+            } */
+        countryRepository.save(country);
         }
-    }
+
     public void deleteCountry(int id){
-        for(int i=0;i<result.size();i++){
-            Country c = result.get(i);
+        /*for(int i = 0; i< countries.size(); i++){
+            Country c = countries.get(i);
             if(c.getId()==id){
-                result.remove(i);
+                countries.remove(i);
                 return;
             }
-        }
+        }*/
+        countryRepository.deleteById(id);
     }
 }
