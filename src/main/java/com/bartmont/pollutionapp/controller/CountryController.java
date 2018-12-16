@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class CountryContreoller {
+public class CountryController {
     @Autowired
     private CountryService countryService;
 

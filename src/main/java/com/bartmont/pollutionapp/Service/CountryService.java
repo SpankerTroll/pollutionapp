@@ -15,10 +15,6 @@ public class CountryService {
     @Autowired
     private CountryRepository countryRepository;
 
-    private List<Country> countries = new ArrayList<>(Arrays.asList(
-            new Country("Poland","Warsaw",1),
-            new Country("Germany","Berlin",2)
-    ));
 
     public List<Country> getAllCountrys(){
         List<Country> countries = new ArrayList<>();
