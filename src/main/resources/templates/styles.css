@@ -1,0 +1,13 @@
+div.div-form{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+body{
+    background-color: aqua;
+}
+
+p.elo{
+    text-overline-color: blue;
+}

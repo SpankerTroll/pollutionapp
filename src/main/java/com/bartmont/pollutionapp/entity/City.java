@@ -11,7 +11,7 @@ public class City {
     private String name;
     private boolean isCapital;
 
-    public City(int id, String name, boolean isCapital, int countryId) {
+    public City(int id, String name, boolean isCapital) {
         this.id = id;
         this.name = name;
         this.isCapital = isCapital;

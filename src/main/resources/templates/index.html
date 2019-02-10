@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>PollutionApp</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" >
+    <style>
+        div.div-form{
+            position: absolute;
+            margin-left: 35%;
+            margin-top: 25%;
+        }
+
+        body{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+<div class="div-form">
+    <form class="form-inline" action="#" th:action="@{/City}" th:object="${city}" method="post">
+        <label for="city">City: </label>
+        <input type="text" class="form-control" id="city" th:field="*{name}">
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
+</div>
+</body>
+</html>
