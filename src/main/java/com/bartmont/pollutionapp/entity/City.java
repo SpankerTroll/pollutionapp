@@ -10,11 +10,13 @@ public class City {
     private int id;
     private String name;
     private boolean isCapital;
+    private String pm25;
 
-    public City(int id, String name, boolean isCapital) {
+    public City(int id, String name, boolean isCapital, String pm25) {
         this.id = id;
         this.name = name;
         this.isCapital = isCapital;
+        this.pm25=pm25;
     }
     public City(){
     }
@@ -43,5 +45,12 @@ public class City {
         isCapital = capital;
     }
 
+    public String getPm25() {
+        return pm25;
+    }
+
+    public void setPm25(String pm25) {
+        this.pm25 = pm25;
+    }
 }
 
