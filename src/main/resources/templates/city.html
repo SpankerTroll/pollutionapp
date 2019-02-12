@@ -9,7 +9,7 @@
         }
         div{
             position: absolute;
-            margin-left: 45%;
+            margin-left: 42%;
             margin-top: 15%;
             border: 3px solid darkblue;
             border-radius: 5px;
@@ -25,10 +25,13 @@
         div.red{
             background-color: red;
         }
+        div.orange{
+            background-color: orange;
+        }
     </style>
 </head>
 <body>
-<div class="blanc" th:classappend="${city.pm25f lt 20.0} ? 'green' : 'red'">
+<div class="blanc" th:classappend="${city.pm25f lt 20.0} ? 'green' : (${city.pm25f lt 30.0} ? 'orange': 'red')">
     <h1>Result</h1>
     <p th:text="'city: ' + ${city.name}" />
     <p th:text="'Pm 2.5: ' + ${city.pm25}">Pm 2.5: 10</pth:>

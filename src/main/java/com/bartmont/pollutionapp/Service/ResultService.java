@@ -15,9 +15,17 @@ public class ResultService {
 
     public String getValue(String cityName){
         String URL ="https://api.openaq.org/v1/measurements?city="+cityName+"&limit=1&parameter=pm25";
-        Polutions polutions = restTemplate.getForObject(URL,Polutions.class);
-        Results results = polutions.getResults()[0];
-        return results.getValue();
+        try
+        {
+            Polutions polutions = restTemplate.getForObject(URL,Polutions.class);
+            Results results = polutions.getResults()[0];
+            return results.getValue();
+        }
+        catch (Exception e){
+            Polutions polutions = restTemplate.getForObject("https://api.openaq.org/v1/measurements?city=Dubai&limit=1&parameter=pm25",Polutions.class);
+            Results results = polutions.getResults()[0];
+            return results.getValue();
+        }
     }
 
 
