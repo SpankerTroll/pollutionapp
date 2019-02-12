@@ -19,6 +19,9 @@
         div.blanc{
 
                  }
+        div.white{
+            background-color: navajowhite;
+        }
         div.green{
             background-color: green;
         }
@@ -31,7 +34,7 @@
     </style>
 </head>
 <body>
-<div class="blanc" th:classappend="${city.pm25f lt 20.0} ? 'green' : (${city.pm25f lt 30.0} ? 'orange': 'red')">
+<div class="blanc" th:classappend="${city.pm25f eq 0.0} ? 'white' : (${city.pm25f lt 20.0} ? 'green' : (${city.pm25f lt 30.0} ? 'orange' : 'red'))">
     <h1>Result</h1>
     <p th:text="'city: ' + ${city.name}" />
     <p th:text="'Pm 2.5: ' + ${city.pm25}">Pm 2.5: 10</pth:>

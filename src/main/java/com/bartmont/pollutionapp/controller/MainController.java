@@ -34,21 +34,33 @@ public class MainController {
     @RequestMapping("/adding")
     @ResponseBody
     public String pm25(@ModelAttribute City city){
-        return resultService.getValue(city.getName());
+        String cityName = city.getName();
+
+        return resultService.getValue(cityName);
     }
 
     @PostMapping("/City")
     public String city(@ModelAttribute City city){
 
+        String cityName = city.getName();
+        if(Character.isLowerCase(cityName.charAt(0))){
+            char ch = cityName.charAt(0);
+            int temp = (int)ch;
+            temp-=32;
+            ch = (char)temp;
+            city.setName( ch + cityName.substring(1));
+        }
+
+
         if(Float.valueOf(resultService.getValue(city.getName()))== -999.0f){
             city.setPm25("No data");
             city.setPm25f(0.0f);
-            logger.info("if");
+            //logger.info("if");
         }
         else {
             city.setPm25(resultService.getValue(city.getName()));
             city.setPm25f(Float.valueOf(resultService.getValue(city.getName())));
-            logger.info("else");
+            //logger.info("else");
         }
         return "city";
     }
