@@ -11,6 +11,15 @@ public class City {
     private String name;
     private boolean isCapital;
     private String pm25;
+    private float pm25f;
+
+    public float getPm25f() {
+        return pm25f;
+    }
+
+    public void setPm25f(float pm25f) {
+        this.pm25f = pm25f;
+    }
 
     public City(int id, String name, boolean isCapital, String pm25) {
         this.id = id;

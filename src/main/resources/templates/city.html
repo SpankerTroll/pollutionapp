@@ -3,11 +3,36 @@
 <head>
     <title>City</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body{
+            background-color: darkseagreen;
+        }
+        div{
+            position: absolute;
+            margin-left: 45%;
+            margin-top: 15%;
+            border: 3px solid darkblue;
+            border-radius: 5px;
+            padding: 25px;
+            background-color: green;
+        }
+        div.blanc{
+
+                 }
+        div.green{
+            background-color: green;
+        }
+        div.red{
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
-<h1>Result</h1>
-<p th:text="'city: ' + ${city.name}" />
-<p th:text="'Pm 2.5: ' + ${city.pm25}">Pm 2.5: 10</pth:>
-<a href="/">Submit another message</a>
+<div class="blanc" th:classappend="${city.pm25f lt 20.0} ? 'green' : 'red'">
+    <h1>Result</h1>
+    <p th:text="'city: ' + ${city.name}" />
+    <p th:text="'Pm 2.5: ' + ${city.pm25}">Pm 2.5: 10</pth:>
+        <p><a href="/">Submit another message</a></p>
+</div>
 </body>
 </html>

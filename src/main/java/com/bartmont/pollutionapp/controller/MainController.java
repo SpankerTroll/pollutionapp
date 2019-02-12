@@ -35,8 +35,7 @@ public class MainController {
     @PostMapping("/City")
     public String city(@ModelAttribute City city){
         city.setPm25(resultService.getValue(city.getName()));
-
-
+        city.setPm25f(Float.valueOf(resultService.getValue(city.getName())));
         return "city";
     }
 }
